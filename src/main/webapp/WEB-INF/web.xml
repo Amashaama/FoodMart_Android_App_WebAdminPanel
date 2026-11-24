@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>FoodMart Admin</display-name>
+
+    <welcome-file-list>
+        <welcome-file>login</welcome-file>
+    </welcome-file-list>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.foodmart.web.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Error page mapping for 404 (not found) -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/lost</location>
+    </error-page>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.foodmart.web.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.foodmart.web.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>com.foodmart.web.servlet.DashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsersServlet</servlet-name>
+        <servlet-class>com.foodmart.web.servlet.UsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsersServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FoodItemsServlet</servlet-name>
+        <servlet-class>com.foodmart.web.servlet.FoodItemsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FoodItemsServlet</servlet-name>
+        <url-pattern>/food-items</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OrdersServlet</servlet-name>
+        <servlet-class>com.foodmart.web.servlet.OrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrdersServlet</servlet-name>
+        <url-pattern>/orders</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CategoriesServlet</servlet-name>
+        <servlet-class>com.foodmart.web.servlet.CategoriesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoriesServlet</servlet-name>
+        <url-pattern>/categories</url-pattern>
+    </servlet-mapping>
+
+    <!-- API Servlets -->
+    <servlet>
+        <servlet-name>UsersApiServlet</servlet-name>
+        <servlet-class>com.foodmart.web.api.UsersApiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsersApiServlet</servlet-name>
+        <url-pattern>/api/users</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FoodItemsApiServlet</servlet-name>
+        <servlet-class>com.foodmart.web.api.FoodItemsApiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FoodItemsApiServlet</servlet-name>
+        <url-pattern>/api/food-items</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OrdersApiServlet</servlet-name>
+        <servlet-class>com.foodmart.web.api.OrdersApiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrdersApiServlet</servlet-name>
+        <url-pattern>/api/orders</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CategoriesApiServlet</servlet-name>
+        <servlet-class>com.foodmart.web.api.CategoriesApiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoriesApiServlet</servlet-name>
+        <url-pattern>/api/categories</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LostServlet</servlet-name>
+        <servlet-class>com.foodmart.web.LostServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LostServlet</servlet-name>
+        <url-pattern>/lost</url-pattern>
+    </servlet-mapping>
+
+</web-app>
